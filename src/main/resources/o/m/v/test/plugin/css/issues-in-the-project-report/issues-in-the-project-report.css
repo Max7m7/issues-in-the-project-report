@@ -1,0 +1,31 @@
+.report-main-block {
+    padding: 5px;
+}
+
+.report-table {
+    width: 100%;
+    border: 0;
+    background-color: lightgrey;
+}
+
+.report-table-head-row {
+    text-align: left;
+    vertical-align: bottom;
+    background-color: white;
+    padding: 1px;
+}
+
+.report-table-row {
+    vertical-align: bottom;
+    background-color: white;
+    padding: 1px;
+}
+
+.report-table-column {
+    text-align: left;
+}
+
+
+
+
+

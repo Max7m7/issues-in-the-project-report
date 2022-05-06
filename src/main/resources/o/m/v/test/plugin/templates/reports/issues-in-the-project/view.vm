@@ -1,0 +1,23 @@
+$webResourceManager.requireResourcesForContext("issues-in-the-project-report-web-resource-context")
+<div class="report-main-block">
+    #if($issueKeySummaryMap.keySet().size() > 0)
+        <h4>$projectName</h4>
+        <br/>
+        <table class="report-table">
+            <tr class="report-table-head-row">
+                <th class="report-table-column">Key</th>
+                <th class="report-table-column">Summary</th>
+            </tr>
+            #foreach ($issueKey in $issueKeySummaryMap.keySet())
+                <tr class="report-table-row">
+                    <td class="report-table-column">
+                        $issueKey
+                    </td>
+                    <td class="report-table-column">
+                        $issueKeySummaryMap.get($issueKey)
+                    </td>
+                </tr>
+            #end
+        </table>
+    #end
+</div>

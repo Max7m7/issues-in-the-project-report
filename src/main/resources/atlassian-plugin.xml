@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="jira-reports"/>
+
+    <web-resource key="o-m-v-jira-report-plugin-resources" name="jira-report-plugin Web Resources">
+        <resource type="download"
+                  name="issues-in-the-project-report.css"
+                  location="/o/m/v/test/plugin/css/issues-in-the-project-report/issues-in-the-project-report.css"/>
+        <context>issues-in-the-project-report-web-resource-context</context>
+    </web-resource>
+
+    <report name="Issues in the project report"
+            i18n-name-key="issues-in-the-project-report.name"
+            key="issues-in-the-project-report"
+            class="o.m.v.test.plugin.reports.IssuesInTheProject">
+        <description key="issues-in-the-project-report.description">Issues in the project report.</description>
+        <resource name="view" type="velocity" location="o/m/v/test/plugin/templates/reports/issues-in-the-project/view.vm"/>
+        <resource name="i18n" type="i18n" location="jira-reports"/>
+        <label key="issues-in-the-project-report.label"/>
+        <properties>
+            <property>
+                <key>projectKey</key>
+                <name>report.issues.in.the.project.projectKey.name</name>
+                <description>report.issues.in.the.project.projectKey.description</description>
+                <type>select</type>
+                <values class="o.m.v.test.plugin.utils.SelectProjectFieldValueGenerator"/>
+            </property>
+        </properties>
+    </report>
+</atlassian-plugin>
